@@ -1,0 +1,45 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arvore-binaria-GoDev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - arvore-binaria-network
+
+  webserver:
+    image: nginx:alpine
+    container_name: arvore-binaria-web
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "8080:80"
+    networks:
+      - arvore-binaria-network
+
+  db:
+    image: mysql:5.7
+    container_name: arvore-binaria-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: arvorebinaria
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - arvore-binaria-network
+
+volumes:
+  dbdata:
+
+networks:
+  arvore-binaria-network:
+    driver: bridge

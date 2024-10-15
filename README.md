@@ -1,6 +1,6 @@
 # Teste Técnico - Go Dev
 
-Este é o repositório do teste técnico para a vaga de desenvolvedor na Go Dev. O projeto consiste em um sistema de gestão de empréstimos de livros, utilizando Laravel para o backend e Next.js para o frontend.
+Este é o repositório do teste técnico para a vaga de desenvolvedor na Go Dev. O projeto consiste em um sistema de gestão de pontos baseado em uma estrutura de árvore binária, utilizando Laravel para o backend.
 
 ## Pré-requisitos
 
@@ -56,3 +56,9 @@ composer install
 9. Acesse seu projeto
     ```bash
     localhost:8080
+
+
+### Pontos importantes:
+
+- **Adapte** o nome correto do container no comando `docker exec`.
+- **Ajuste** qualquer detalhe de configuração do `.env` de acordo com o seu projeto.
